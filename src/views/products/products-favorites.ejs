@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head.ejs") %>
+
+    <link rel="stylesheet" href="/css/home.css" />
+    <title>Todos los productos</title>
+  </head>
+
+  <body>
+    <%- include("../partials/header.ejs") %>
+
+    <main class="bg-white mt-4">
+      <div class="container">
+        <h2>Tus productos favoritos</h2>
+
+        <% if(locals.isLogged && locals.products){ %>
+        <div class="row">
+          <% products.forEach(product=> { %>
+          <article class="cont-card col-md-3 col-sm-6">
+            <div class="card m-2">
+              <a href="../../products/detail/<%= product.id %>">
+                <div class="box-img">
+                  <img
+                    class="article-img"
+                    src="/img/articulos/<%=product.productImages%>"
+                  />
+                </div>
+              </a>
+              <div class="card-body card-description">
+                <div class="d-flex justify-content-around">
+                  <div id="favProd">
+                    <form
+                      action="/products/productFavDestroy/<%=product.id%>?_method=delete"
+                      method="POST"
+                    >
+                      <button>
+                        <i class="icon-card fa-solid fa-trash-can"></i>
+                      </button>
+                    </form>
+                  </div>
+                  <p class="card-price">$ <%=product.price%></p>
+                  <p class="card-discount">10% off</p>
+                </div>
+                <div class="sub-card position-relative">
+                  <h3 class="card-title">
+                    <a href="../../products/detail/<%= product.id %>">
+                      <%=product.productName%>
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </article>
+          <% }) %>
+        </div>
+
+        <% } else { %>
+        <div class="mb-5 mt-5"><h1 class="emoji">😔</h1></div>
+        <div class="mb-5"><h2>No tienes productos favoritos</h2></div>
+
+        <% } %>
+      </div>
+    </main>
+
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

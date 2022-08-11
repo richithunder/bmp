@@ -1,0 +1,179 @@
+main {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+.text-center {
+    text-align: center;
+}
+
+.width-90 {
+    width: 90%;
+}
+.width-100 {
+    width: 100%;
+}
+
+.width-40 {
+    width: 40%;
+}
+
+.emoji{
+    font-size: 100px;
+}
+
+.box-img {
+    height: 300px;
+    display: flex;
+}
+
+.article-img {
+    max-height: 100%;
+    display: flex;
+    margin: auto;
+}
+
+#caja-precio {
+    width: 100%;
+    display: flex;
+}
+.precio-numero {
+    margin-bottom: 0.5rem;
+    font-size: 25px;
+}
+
+.product-name {
+    font-size: 20px;
+}
+
+
+.pd-amount {
+    margin-bottom: 20px;
+}
+
+
+.section-carrito {
+    box-shadow: 0px 0px 10px rgb(100 100 100);
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.section-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.total-precio {
+    font-size: 20px;
+}
+
+.caja-total {
+    display: flex;
+    margin-left: 15px;
+    margin-right: 15px;
+    flex-direction: column;
+
+}
+
+.caja-total h2 {
+    margin-right: 20px;
+}
+
+
+
+
+.carrito {
+    text-align: center;
+    font-size: 60px;
+}
+
+.product-card {    
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+.selector-cantidad {
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    width: 50px;
+    height: 34px;
+    text-align: center;
+}
+
+
+.button-comprar{
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #1259c3;
+    border: none;
+    color: white;
+}
+
+.button-eliminarProducto {
+    border: none;
+    background: none;
+    color: #448aff;
+}
+
+.button-eliminarProducto:hover {
+    color: #0452fc;
+}
+
+
+
+.information-total {
+    background-color: #dcdcdc47;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    height: 100%;
+}
+
+.caja-total-envio {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.resumen-compra div {
+    border-bottom: solid 1px #00000047;
+}
+
+
+@media (min-width: 768px){
+    .section-products {
+        display: block
+    }
+}
+
+
+
+
+@media (min-width: 992px) {
+    .section-main {
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
+    .section-total {
+        height: 100%;
+    }
+    .information-total {
+        width: 39%;
+        position: sticky;
+        top: 50px
+    }
+    .article-img {
+        max-height: 260px;
+        width: 100%;
+        display: flex;
+        margin: auto;
+    }
+
+}

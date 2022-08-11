@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/home.css" />
+        <link rel="stylesheet" href="/css/formularios.css" />
+        <title>Crear un nuevo producto</title>
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+        <main class="container m-15 mb-10">
+            <div class="errores text text-danger">
+                <ul></ul>
+            </div>
+            <form class="crear" action="/products/create" method="POST" enctype="multipart/form-data">
+                <input type="hidden">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="titulo-fomulario text-center celeste-vpm">Creando un nuevo producto</i>
+                        </h2>
+                    </div>
+                    <div class="col-12 col-md-6 ">
+                        <label class="form-label celeste-vpm" for="name">Nombre del producto</label>
+                        <input class="form-control" type=" text " id="validacionName" id="productName"
+                            name="productName" value="<%= locals.oldData ? oldData.productName : null%>">
+                        <div class="text-danger" id="errorNombre">
+                            <% if (locals.errors && errors.productName) { %>
+                                <%= errors.productName.msg %>
+                                    <% } %>
+                                    <% if(locals.error){ %> 
+                                        
+                                   <%= locals.error %>
+                                  <% } %>
+                                
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label celeste-vpm" for="name">Descripcion del producto</label>
+                        <input class="form-control" type=" text " id="description" name="description"
+                            value="<%= locals.oldData ? oldData.description : null%>">
+                        <div class="text-danger" id="errorDescripcion">
+                            <% if (locals.errors && errors.description) { %>
+                                <%= errors.description.msg %>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label celeste-vpm" for="models">Marca y Modelo</label>
+                        <select name="models" id="models" class="form-control models marca">
+                            
+                            <div>
+                                <% for(let i=0; i<m.length; i++){ %>
+                                    <option  value="<%= m[i].id %>" 
+                                        <% if (locals.userLogged.recentCreatedModel && locals.userLogged.recentCreatedModel.id == m[i].id ) { %>
+                                            selected="selected"
+                                        <% } %>>
+                                        <%= m[i].marcas ? `Marca: ${ m[i].marcas.name } - Modelo: ${ m[i].name }` :
+                                            m[i].name %>
+                                    </option>
+                                    <% } %>
+                                    <% console.log("esto viene del ejs: ", locals.userLogged) %> 
+                                    <% if (!locals.userLogged.recentCreatedModel) { %>
+                                        <option value="" selected="selected">seleccione una combinación</option>
+                                    <% } %>
+
+                                    <% locals.userLogged.recentCreatedModel = null; %> 
+                                    <% console.log(locals.userLogged.recentCreatedModel) %> 
+                            </div>
+                        </select>
+                        <% if (locals.errors && errors.models) { %>
+                            <div class="text-danger">
+                                <%= errors.models.msg %>
+                            </div>
+                            <% } %>
+                        <button type="button" class="btn btn-primary mt-2 mb-1 form-control" onclick="window.location.href='/brands/create';">Crear una nueva combinación</button>
+                    </div>
+                                 
+                       
+                    
+                    <div class="col-md-6">
+                        <label class="form-label celeste-vpm" for="price">Precio</label>
+                        <input class="form-control" type="text" id="price" name="price"
+                            value="<%= locals.oldData ? oldData.price : null%>">
+                        <div class="text-danger" id="errorPrecio">
+                            <% if (locals.errors && errors.price) { %>
+                                <%= errors.price.msg %>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label celeste-vpm" for="minBuy">Minimo a comprar</label>
+                        <input class="form-control" type="text" id="minBuy" name="minBuy"
+                            value="<%= locals.oldData ? oldData.minBuy : null%>">
+                        <div class="text-danger" id="errorMinBuy">
+                            <% if (locals.errors && errors.minBuy) { %>
+                                <%= errors.minBuy.msg %>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <label class="form-label celeste-vpm" for="category">Categoria</label>
+                        <select name="category" id="category" class="form-control">
+                            <option value="" selected="selected">seleccione categoria</option>
+                            <% for(let i=0; i<c.length; i++){ %>
+                                <option value="<%= c[i].id %>">
+                                    <%= c[i].name %>
+                                </option>
+                                <% } %>
+                        </select>
+                        <% if (locals.errors && errors.category) { %>
+                            <div class="text-danger">
+                                <%= errors.category.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="col-md-6"><label class="form-label celeste-vpm" for="img">Imagen</label>
+                        <input class="form-control" type="file" id="img" name="img"
+                            value="<%= locals.oldData ? oldData.productImages : null%>">
+                        <% if (locals.errors && errors.productImages) { %>
+                            <div class="text-danger">
+                                <%= errors.productImages.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center mt-5">
+                        <button class=" btn btn-outline-info mb-5 w-50 " type="submit ">Crear</button>
+                        <button class="btn btn-secondary mb-5 w-50" type="reset">Borrar todo</button>
+                    </div>
+                </div>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+            <script src=""></script>
+  <!--            <script src="/js/validacionCreate.js"></script>  -->
+</body>
+
+</html>

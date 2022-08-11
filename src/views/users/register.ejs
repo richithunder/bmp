@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/formularios.css" />
+        <title>Registro</title>
+
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+        <main class="container m-15 mb-10">
+            <div>
+                <h1 class="titulo-fomulario text-center celeste-vpm">Vendé y comprá con <span>BMP</span></h1>
+            </div>
+            <form method="POST" action="" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="username" class="form-label celeste-vpm">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="username" name="userName" placeholder="Ingrese caracteres alfanuméricos, guiones o guiones bajos" value="<%= locals.oldData ? oldData.userName : null%>" >
+                        <% if (locals.errors && errors.userName) { %>
+                            <div class="text-danger">
+                                <%= errors.userName.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="mb-3 col-md-6 col-lg-6">
+                        <label for="firstName" class="form-label celeste-vpm">Nombre</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="<%= locals.oldData ? oldData.firstName : null%>" >
+                        <% if (locals.errors && errors.firstName) { %>
+                            <div class="text-danger">
+                                <%= errors.firstName.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-lg-6">
+                        <label for="lastName" class="form-label celeste-vpm">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="<%= locals.oldData ? oldData.lastName : null%>">
+                        <% if (locals.errors && errors.lastName) { %>
+                            <div class="text-danger">
+                                <%= errors.lastName.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="mb-3 col-md-6 col-lg-6">
+                        <label for="businessName" class="form-label celeste-vpm">Nombre de la empresa</label>
+                        <input type="text" class="form-control" id="businessName" name="companyName" value="<%= locals.oldData ? oldData.companyName: null%>">
+                        <% if (locals.errors && errors.companyName) { %>
+                            <div class="text-danger">
+                                <%= errors.companyName.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-lg-6">
+                        <label for="businessId" class="form-label celeste-vpm">Cuit</label>
+                        <input type="text" class="form-control" id="businessId" name="cuit" placeholder="xx-xxxxxxxx-x" value="<%= locals.oldData ? oldData.cuit : null%>" >
+                        <% if (locals.errors && errors.cuit) { %>
+                            <div class="text-danger">
+                                <%= errors.cuit.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label celeste-vpm">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="nombre@ejemplo.com.ar" value="<%= locals.oldData ? oldData.email : null%>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                            <% } %>
+                        <div id="emailHelp" class="form-text text-light">Nunca compartiremos su correo electrónico con nadie más.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label celeste-vpm">Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" >
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="text-danger">
+                                <%= errors.password.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact" class="form-label celeste-vpm">Teléfono</label>
+                        <input type="tel" class="form-control" name="contact" id="contact" value="<%= locals.oldData ? oldData.contact : null%>">
+                        <% if (locals.errors && errors.contact) { %>
+                            <div class="text-danger">
+                                <%= errors.contact.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label celeste-vpm">Foto de perfil</label>
+                        <input class="form-control" type="file" id="img" name="img" value="<%= locals.oldData ? oldData.img : null%>">
+                        <% if (locals.errors && errors.img) { %>
+                            <div class="text-danger">
+                                <%= errors.img.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="terminos-condiciones">
+                        <label class="form-check-label text-light" for="exampleCheck1 celeste-vpm">por la presente reconozco que acepto los Términos y condiciones de BMP y que he leído el Aviso de privacidad .</label>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center mt-5 mb-5"><button type="submit" class="btn btn-outline-info mb-5 w-50">Registrarse</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

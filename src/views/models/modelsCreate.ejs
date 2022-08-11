@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/formularios.css" />
+        <title>Registro</title>
+
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+        <main class="container m-15 mb-10">
+            <div>
+                <h1 class="titulo-fomulario text-center celeste-vpm">Vendé y comprá con <span>BMP</span></h1>
+            </div>
+            <form method="POST" action="">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label celeste-vpm" for="models">Marca</label>
+                        <select name="brand_id" id="brand_id" class="form-control">
+                            <div><% for(let i=0; i<m.length; i++){ %> 
+                               <option value="<%= m[i].id %>" <% if (locals.userLogged.recentCreatedBrand && locals.userLogged.recentCreatedBrand.id == m[i].id ) { %>
+                                selected="selected"
+                               <% } %>><%= m[i].name %></option>
+                               <% } %></div>
+                               <% if (!locals.userLogged.recentCreatedBrand) { %>
+                            <option value="" selected="selected">seleccione una marca</option>
+                                <% } %>
+                        </select>
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.brand_id) { %>
+                                <%= errors.brand_id.msg %>
+                                    <% } %>
+                        </div>
+                        </div>
+                    <div class="mb-3 col-md-6 col-lg-6">
+                        <label for="name" class="form-label celeste-vpm">Nombre del modelo</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= locals.oldData ? oldData.name : null%>" >
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.name) { %>
+                                <%= errors.name.msg %>
+                                    <% } %>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-6 col-lg-6">
+                        <label for="description" class="form-label celeste-vpm">Descripción del modelo</label>
+                        <input type="text" class="form-control" id="description" name="description" value="<%= locals.oldData ? oldData.description : null%>">
+                        <div class="text-danger" id="errorDescripcion">
+                            <% if (locals.errors && errors.description) { %>
+                                <%= errors.description.msg %>
+                                    <% } %>
+                        </div>
+                    </div>
+
+                                                         
+                    <div class="d-flex justify-content-center mt-5 mb-5"><button type="submit" class="btn btn-outline-info mb-5 w-50">Crear modelo</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+.product-photo-and-price {
+
+  width: 95%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+
+.pd-carousel {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 90%;
+  max-width: 400px;
+  margin-bottom: 20px;
+
+}
+
+.pd-price {
+  font-weight: bold;
+}
+
+
+.pd-amount {
+  margin-bottom: 20px;
+}
+
+
+.pd-description-title {
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+
+.pd-description-detail-container {
+  margin-top: 20px;
+  width: 90%;
+  margin-left: 20px;
+}
+
+
+.pd-description-detail {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 90%;
+}
+
+
+.pd-description-detail-title {
+  font-weight: bold;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+
+.pd-last-buy-button {
+  margin: 20px;
+}
+
+
+.pd-vendor-title {
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+
+.pd-vendor-detail {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.pd-vendor-avatar {
+  width: 40%;
+  max-width: 70px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.vendor-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vendor-info {
+  margin-left: 20px;
+  color: blue;
+}
+
+.btn-add-to-cart{
+  background-color: #1a1a1a;
+  color: white;
+}
+.btn-add-to-cart:hover{
+  border-color: #4DC6BE;
+  color: white;
+}

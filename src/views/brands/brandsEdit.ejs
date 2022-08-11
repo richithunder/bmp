@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/formularios.css" />
+        <title>Registro</title>
+
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+        <main class="container m-15 mb-10">
+            <div>
+                <h1 class="titulo-fomulario text-center celeste-vpm">Editando una marca</h1>
+            </div>
+            <form method="POST" action="/brands/edit/<%=b.id%>?_method=PUT">
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="name" class="form-label celeste-vpm">Nombre de la marca</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre de la marca" value="<%= b.name %>">
+                    </div>
+                    
+                    <div class="d-flex justify-content-center mt-5 mb-2"><button type="submit" class="btn btn-outline-info mb-2 w-50">Guardar</button>
+                    </div>
+                </div>
+            </form>
+            <form action="/brands/delete/<%=b.id%>?_method=delete" method="POST">
+                <div class="col-12 d-flex justify-content-center">
+                <button class="btn btn-secondary mb-5 w-50" type="submit">Eliminar marca</button>
+            </form>
+
+
+
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+ .celeste-vpm {
+     color: #4dc6be;
+ }
+ 
+ .text-white {
+     color: #ffffff;
+ }
+ 
+ .text-green {
+     color: #39b54a;
+ }
+ 
+ .azul-claro-vpm {
+     color: #477ecf;
+ }
+ 
+ .bg-white {
+     background-color: #ffffff;
+ }
+ 
+ .bg-black {
+     background-color: #1a1a1a;
+ }
+ 
+ .bg-gris {
+     background-color: #ebebeb
+ }
+ 
+ .margin-top-5 {
+     margin-top: 5px;
+ }
+ /* clases exclusivas del footer */
+ 
+ .a-logo {
+     width: 30%;
+     height: 10%;
+ }
+ 
+ .collapse .navbar-text {
+     display: none;
+ }
+ 
+ .nav-desktop {
+     display: none;
+ }
+ 
+ .d-flex {
+     display: flex!important;
+     width: 100%;
+ }
+ 
+ .btn-outline-success {
+     color: #4DC6BE;
+     border-color: #4DC6BE;
+ }
+ 
+ .btn-outline-success:hover {
+     color: #fff;
+     background-color: #4DC6BE;
+     border-color: #4DC6BE
+ }
+ 
+ .dropdown-item:hover {
+     color: #1e2125;
+     background-color: #4DC6BE;
+ }
+ 
+ .creaCuenta {
+     width: 130px;
+ }
+ 
+ .footer-bmp {
+     display: flex;
+     width: 100%;
+     flex-wrap: wrap;
+ }
+ 
+ .logo-footer {
+     width: 60%;
+     margin-top: 10px;
+     margin-bottom: 10px;
+     margin-left: 25px;
+ }
+ 
+ .footer-social-media-list {
+     display: flex;
+     color: #ffffff;
+     margin-left: 0px;
+     margin-bottom: 0px;
+     align-items: center;
+     padding-left: 25px;
+ }
+ 
+ .fa-brands {
+     font-size: 1.2em;
+     margin-left: 6px;
+     margin-right: 6px;
+     margin-top: 10px;
+ }
+ 
+ .footer-social-media-container {
+     display: flex;
+     align-items: center;
+ }
+ 
+ .footer-data-container {
+     font-size: 0.9em;
+     position: relative;
+     right: 300px;
+ }
+ 
+ .contact-container {
+     display: flex;
+     flex-direction: column;
+     position: relative;
+ }
+ 
+ .container-img {
+     width: 240px;
+     height: 240px;
+ }
+ 
+ .email-and-phone {
+     margin-bottom: 0px;
+     color: #ffffff;
+     font-size: 0.9em;
+     font-weight: bold;
+     position: relative;
+     width: 70%;
+     right: -30px;
+ }
+ 
+ .footer-logo-container {
+     width: 40%;
+ }
+ 
+ .contact-container {
+     width: 160px;
+     margin-left: auto;
+     margin-right: 5px;
+ }
+ 
+ .email-and-phone-container-since-480 {
+     display: none;
+     margin-top: 10px;
+ }
+ 
+ .header-scroll {
+     position: sticky;
+     top: 0;
+     z-index: 3;
+ }
+ 
+ .float {
+     position: fixed;
+     width: 60px;
+     height: 60px;
+     bottom: 40px;
+     right: 40px;
+     background-color: #25d366;
+     color: #FFF;
+     border-radius: 50px;
+     text-align: center;
+     font-size: 30px;
+     box-shadow: 2px 2px 3px #999;
+     z-index: 100;
+ }
+ 
+ .my-float {
+     margin-top: 10px;
+ }
+ 
+ @media (min-width: 480px) {
+     .contact-container {
+         width: 55%;
+     }
+     .email-and-phone {
+         width: 270px;
+         text-align: left;
+         margin-left: auto;
+         justify-content: right;
+     }
+     .footer-social-media-container {
+         margin-left: auto;
+     }
+     .logo-footer {
+         margin-top: 15px;
+         margin-bottom: 15px;
+     }
+ }
+ 
+ @media (min-width: 768px) {
+     .email-and-phone-container-since-480 {
+         display: flex;
+     }
+     .email-and-phone-container {
+         display: none;
+     }
+     .contact-container {
+         width: 20%;
+         margin-right: 28px;
+     }
+     .fa-brands {
+         font-size: 2em;
+     }
+     .footer-social-media-list {
+         padding-left: 0px;
+     }
+     .email-and-phone {
+         font-size: 1.2em;
+     }
+     .logo-footer {
+         width: 40%;
+         margin-top: 20px;
+         margin-bottom: 20px;
+     }
+     .header-scroll {
+         position: static;
+     }
+ }
+ 
+ @media (min-width: 992px) {
+     .navbar-expand-lg {
+         flex-wrap: nowrap;
+         justify-content: flex-start;
+         max-height: 189px;
+     }
+     .navbar-text {
+         display: none;
+     }
+     .collapse .navbar-text {
+         display: flex;
+         width: 100%;
+         padding-left: 10px;
+     }
+     .nav-desktop {
+         display: flex;
+     }
+ }

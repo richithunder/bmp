@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/productCar.css">
+        <title>Carrito de compras</title>
+</head>
+
+<body>
+    <%- include("../partials/header.ejs") %>
+        <main>
+            <div>
+                <p class="carrito">
+                    <i class="fa-solid fa-dolly"></i>
+                </p>
+            </div>
+
+            <h1 class="text-center">Mi Carrito de Compras</h1>
+            <section class="section-main">
+                
+                <section class="section-products">
+                    <% if(productos==null){ %>
+                        <div class="mb-5 mt-5 d-flex justify-content-center"><h1 class="emoji">😔</h1></div>
+                        <div class="mb-5 justify-content-center"><h2>No tienes productos en el carrito </h2></div>
+                   <% } else { %> 
+                       <% productos.forEach(p => { %>
+                        <section>
+        
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <a href="../../products/detail/<%= p.id %>">
+                                        <div class="box-img">
+                                        <img src="/img/articulos/<%=p.productImages%> " class="img-fluid article-img" alt="...">
+                                        </div>
+                                    </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="precio-numero">$ <%=p.price%> </h5>
+                                            <p class="card-text product-name"><%=p.name%> </p>
+                                            <select class="form-select pd-amount" aria-label="Default select example">
+                                                <option selected>Cantidad: 1 </option>                          
+                                              </select>
+                                            <p class="card-text "><small class="text-green">Envío Gratis</small></p>
+                                                <form action="/products/productCartDestroy/<%=p.id%>?_method=delete" method="POST">
+                                                    <div class="col-12 d-flex mt-5">
+                                                        <button class="button-eliminarProducto" type="submit"><p class="card-text">Eliminar producto</p></button>
+                                                </form>
+                                    </button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </section>
+                      <% }) %>
+
+                     
+                </section>
+                <section class="information-total mb-5">
+                    <div class="caja-total">
+                        <article class="resumen-compra">
+                            <div>
+                                <p>Resumen de compra</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Productos (<%= productos ? productos.length : "" %>)</p>
+                                <% let precioTotal = 0; %> 
+                                <% productos.forEach(element => { %>
+                                    <% precioTotal = precioTotal + element.price %> 
+                                <% }) %>
+                                <p>$ <%= precioTotal %></p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <p>Envío</p>
+                                <p class="text-green">Gratis</p>
+                            </div>
+                        </article>
+                        <article class="caja-total-envio">
+                            <h2>Total con envío</h2>
+                            <p class="total-precio"> $ <%= precioTotal %></p>
+                        </article>
+                    </div>
+
+                    <div>
+                       <a class="w-100" href="/" id="compraExitosa"> <button class="btn btn-dark mb-5 w-100" >Continuar compra</button></a>
+                    </div>
+                </section>
+                <% } %> 
+            </section>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+        <script src="/js/compraExistosa.js"></script>  
+    </body>
+
+</html>

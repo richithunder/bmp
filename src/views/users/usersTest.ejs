@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/formularios.css">
+        <title>Inicia Sesión</title>
+
+
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+
+
+    <main>
+        <p>
+<% for( let index = 0; index < usuarios.length; index++ ) { %>
+   ID: <%= usuarios[index].id%> 
+   Username: <%= usuarios[index].userName%>
+    Categoría: <%= usuarios[index].usersCategories.type%>
+</br>
+<% } %>
+        </p>
+
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

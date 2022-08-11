@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/formularios.css">
+        <title>Inicia Sesión</title>
+
+
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+
+        <main class="container w-50 ml-auto mr-auto ">
+            <h1 class="titulo-fomulario text-center celeste-vpm">Iniciar sesión</h1>
+            <% if (locals.loginError) { %>
+                <div class="text-danger">
+                    <p>Login incorrecto. Verifique los datos ingresados.</p>
+                </div>
+            <% } %>
+            <form action="" method="POST">
+                <div class="row mb-1 mt-5">
+                    <label for="username" class="form-label celeste-vpm fs-20">Dirección de e-mail</label>
+                    <input type="text" class="form-control" id="username" name="username" value="<%= locals.username ? oldData.username : null%>" placeholder="Ingrese su dirección de e-mail" required>
+                    <% if (locals.errors && errors.username) { %>
+                        <div class="text-danger">
+                            <%= errors.username.msg %>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="row mb-3 mt-5">
+                    <label for="password" class="form-label celeste-vpm fs-20">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                            <%= console.log(errors) %>
+                        </div>
+                        <% } %>
+                </div>
+                <div>
+                    <label for="recordame" class="form-label text-white">Acordate de mi </label>
+                    <input type="checkbox" id="recordame" name="recordame">
+                </div>
+                <p class="text-white text-center">Si todavía no tienes una cuenta corré ya a <a style="color: #4DC6BE" href="/users/register">Registrarte</a></p>
+                <div class="d-flex justify-content-center mt-5 mb-5"> <button type="submit" class=" btn btn-outline-info ">Iniciar sesión</button>
+                </div>
+            </form>
+            
+
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

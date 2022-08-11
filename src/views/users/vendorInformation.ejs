@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+        <link rel="stylesheet" href="/css/vendorInfo.css">
+        <title>Información del vendedor</title>
+
+
+</head>
+
+<body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+
+        <main class="main-container">
+            <h1 class="text-center celeste-vpm">Información sobre el vendor</h1>
+            <img src="/img/users/avatars/<%= vendorInfo.companyImg %>" alt="" class="vendor-img">
+
+            <li class="celeste-vpm vendor-info-list">
+
+                <ul>Empresa: <%= vendorInfo.companyName %> </ul>
+                <ul>Responsable: <%= vendorInfo.userName %></ul>
+                <ul>CUIT: <%= vendorInfo.cuit %></ul>
+                <ul>E-mail: <%= vendorInfo.email %></ul>
+                <ul>Teléfono: <%= vendorInfo.phoneNumber %></ul>
+            </li>
+
+
+        </main>
+        <%- include("../partials/footer.ejs") %>
+</body>
+
+</html>

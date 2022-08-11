@@ -1,0 +1,27 @@
+.btn-form {
+    color: black;
+    background-color: #4DC6BE;
+}
+
+.errorMensaje {
+    font-size: 20px;
+    color: red;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.avatar-sub-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.avatar-mw-50 {
+    width: 90%;
+
+}

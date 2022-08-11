@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+
+        <link rel="stylesheet" href="/css/home.css" />
+        <title>Todos los modelos</title>
+</head>
+
+<body>
+    <%- include("../partials/header.ejs") %>
+
+        <main class="bg-white mt-4">
+            <div class="container">
+                            <div class="row">
+                                <ul class="list-group mb-5">
+                                    <li class="list-group-item active">Marcas</li>
+                                    <% brands.forEach(brand => { %>
+                                    <li class="list-group-item">
+                                        <a href="../../brands/edit/<%= brand.id %>"> <%=brand.name%> </a>
+                                    </li>
+                                    <% }) %>
+                                  </ul>
+                            </div>
+            </div>
+        </main>
+
+        <%- include("../partials/footer.ejs") %>
+</body>

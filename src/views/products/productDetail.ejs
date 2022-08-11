@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head.ejs") %>
+
+        <link rel="stylesheet" href="/css/productDetail.css">
+        <title> BMP -
+            <%= p.productName %>
+        </title>
+</head>
+
+<body>
+
+    <%- include("../partials/header.ejs") %>
+
+        <h5 class="pd-description-detail-title">Detalle del producto:
+            <%= p.productName %>
+        </h5>
+
+        <section class="product-photo-and-price">
+            <div class="card mb-3">
+                <div class="row g-0">
+
+
+                    <div id="carouselExampleDark" class="carousel carousel-dark slide pd-carousel" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="10000">
+                                <img src="/img/articulos/<%=p.productImages%>" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5></h5>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="2000">
+                                <img src="/img/articulos/<%=p.productImages%>" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5></h5>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/img/articulos/<%=p.productImages%>" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5></h5>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+
+
+
+
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <h5 class="precio-numero pd-price">$
+                                <%= p.price %>
+                            </h5>
+                            <p class="card-text product-name">
+                                <%= p.name %>
+                            </p>
+                            <p class="card-text product-name">
+                                <%= p.modelosDeProducto.name %>
+                            </p>
+                            <p class="card-text product-name">
+                                <%= marca.name %>
+                            </p>
+
+                            <select class="form-select pd-amount" aria-label="Default select example">
+                          <option selected>Cantidad: 1  </option>
+                          <option value="1">1 unidad</option>
+                        </select>
+                            <p class="card-text "><small class="text-green">Envío Gratis</small></p>
+                            <% if(locals.isLogged) {%>
+                                <a href="/"> <button type="button" class="btn btn-primary">Comprar ahora</button></a>  
+
+                                <a href="/products/productCartAdd/<%= p.id %>" style="display: flex " > <button type="button" style= "display: <%=productsInCart.length>0 ? "none": "" %>" class="btn btn-add-to-cart">Agregar al carrito <i class="fa-solid fa-dolly"></i></button></a>
+                                <% if (locals.isLogged && locals.userLogged.id == p.vendor.id) { %>
+                                    <a href="/products/edit/<%= p.id %>"> <button type="button" class="btn btn-secondary">Editar producto</button></a>  
+                                <% } %>
+                               
+                                <%} else {%>
+                                    <a href="/users/login"> <button type="button" class="btn btn-primary">Comprar ahora</button></a>
+                                    <a href="/users/login" style="display: flex"> <button type="button" class="btn btn-add-to-cart">Agregar al carrito <i class="fa-solid fa-dolly"></i></button></a>
+
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card mb-3 pd-description">
+                <h4 class="pd-description-title">Descripción del producto</h4>
+
+                <div class="card mb-2 pd-description-detail">
+                    <p class="pd-description-detail">
+                        <%= p.description %>
+
+
+                    </p>
+
+                    <button type="button" class="btn btn-primary pd-last-buy-button">Comprar ahora</button>
+
+                </div>
+
+            </div>
+            <div class="card mb-3 vendor-container">
+                <h5 class="pd-vendor-title">Información del vendedor</h5>
+                <div class="pd-vendor-detail">
+
+                    <img src="/img/users/avatars/default-avatar.png" alt="" class="pd-vendor-avatar">
+                    <%= p.vendor.companyName %>
+                        <a href="../../users/vendorInfo/<%= p.vendor.id %> " class="vendor-info">Conocé más información sobre el vendedor</a>
+                </div>
+            </div>
+        </section>
+        <%- include("../partials/footer.ejs") %>
+
+</body>
+
+</html>

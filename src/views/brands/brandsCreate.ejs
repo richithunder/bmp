@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head.ejs") %>
+    <link rel="stylesheet" href="/css/formularios.css" />
+    <title>Registro</title>
+  </head>
+
+  <body class="bg-black">
+    <%- include("../partials/header.ejs") %>
+    <main class="container m-15 mb-10">
+      <div>
+        <h1 class="titulo-fomulario text-center celeste-vpm">
+          Crear una marca <span>BMP</span>
+        </h1>
+      </div>
+      <form method="POST" action="">
+        <div class="row">
+          <div class="mb-3">
+            <label for="name" class="form-label celeste-vpm"
+              >Nombre de la marca</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Ingrese el nombre de la marca"
+            />
+            <div class="text-danger" id="errorDescripcion">
+              <% if (locals.errors && errors.name) { %> <%= errors.name.msg %>
+              <% } %>
+            </div>
+            <button
+              type="button"
+              class="btn btn-secondary mt-2 mb-1 form-control"
+              onclick="window.location.href='/models/create';"
+            >
+              Ya existe la marca, quiero crear un nuevo modelo
+            </button>
+          </div>
+
+          <div class="d-flex justify-content-center mt-5 mb-5">
+            <button type="submit" class="btn btn-outline-info mb-5 w-50">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
